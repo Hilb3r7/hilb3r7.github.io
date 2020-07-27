@@ -12,9 +12,9 @@ author: Hilb3r7
 # --- List of links in the navigation bar --- #
 
 navbar-links:
-  home: "https://hilb3r7.github.io"
+  home: "index"
   About: "about"
-  Walkthroughs:
+  walkthroughs: "walkthroughs"
   
 
 # --- Logo --- #
@@ -30,6 +30,10 @@ round-avatar: true
 # then specify the following parameter
 #title-img: /path/to/image
 
+# ---- Collections --- #
+collections:
+  walkthroughs:
+    output: true
 
 # --- Footer options --- #
 
