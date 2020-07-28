@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Networked
-description: "Hack the box Networked walkthrough"
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/networked_logo.png
 show-avatar: false
+permalink: /walkthroughs/networked.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 
 <h2 align="center">Enumeration</h2>
@@ -83,10 +84,8 @@ Downloading and extracting the tar file we find its the source files for the .ph
 
 Analyzing the upload.php and lib.php files we see that there is some extension checking in place, as well as a mimetype check. These are in place to attempt to only allow us to upload an image file. There are two ways I found to bypass this.
 
-<div style="page-break-after: always;"></div>
 
-
-<h4 align="center">Initial foothold</h4>
+<h3 align="center">Initial foothold</h3>
 **Method 1:**
 
 
@@ -131,10 +130,7 @@ apache
 
 
 
-<div style="page-break-after: always;"></div>
-
-
-<h4 align="center">Privilage Escalation</h4>
+<h3 align="center">Privilage Escalation</h3>
 We have a shell but we are only user apache. Looking at the /etc/passwd file we see there is user named "guly". If we look in /home/guly we see two interesting files. 'crontab.guly' and 'check_attack.php'. Looking at the files we see that crontab.guly is set to run check_attack.php every 3 minutes. If we look at check_attack.php
 
 ```php
@@ -207,7 +203,7 @@ guly
 
 Bingo! We can now cat the user.txt file.
 
-<h4 align="center">On To Root</h4>
+<h3 align="center">On To Root</h3>
 Running "sudo -l" we see
 
 ```sh
@@ -241,6 +237,4 @@ root
 
 We now have access to the root flag.
 
-If you found this walkthrough helpful, please consider giving a respect on my profile page, thanks
-
-https://www.hackthebox.eu/home/users/profile/182543
+If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

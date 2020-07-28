@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
-title: MAngo
-description: "Hack the box MAngo walkthrough"
+title: Mango
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/mango_logo.png
 show-avatar: false
+permalink: /walkthroughs/mango.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 
 <h2 align="center">Enumeration</h2>
@@ -99,7 +100,7 @@ We have a successful login! Looking at the page we don't see much
 
 other than there is an admin user. However now that we know the site is vulnerable to noSQL injection, we can get the usernames and passwords in the database.
 
-<h4 align="center">Exploitation</h4>
+<h3 align="center">Exploitation</h3>
 Using the information from the PayloadsAllTheThings page, as well as this helpful blog post
 
 https://blog.0daylabs.com/2016/09/05/mongo-db-password-extraction-mmactf-100/
@@ -230,7 +231,7 @@ lrwxrwxrwx 1 admin admin    9 Sep 27 14:30 .bash_history -> /dev/null
 
 ```
 
-<h4 align="center">On To Root</h4>
+<h3 align="center">On To Root</h3>
 Running LinEnum we see that there is a binary we can run as admin that runs as root
 
 ```
@@ -282,6 +283,4 @@ root@mango:~#
 
 ```
 
-If you found this write up helpful, please consider giving a respect on my profile page, thanks
-
-https://www.hackthebox.eu/home/users/profile/182543
+If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

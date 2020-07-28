@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Blunder
-description: "Hack the box blunder walkthrough how much wood would a wood chuck chuck if a wood chuck could chick wood, check check check how you doing i am doing great this is lkong enough? i dunno we should check it now!"
+description: "Hack The Box Walkthrough"
 logo: /assets/img/walkthroughs/blunder_logo.png
 show-avatar: false
+permalink: /walkthroughs/blunder.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 
 <h2 align="center">Enumeration</h2>
@@ -194,6 +195,7 @@ Content-Disposition: form-data; name="tokenCSRF"
 491d604267f20ac5fa461492b79285b0d128bb98
 -----------------------------33062673224378799335303524--
 ```
+<p>
 
 ```
 POST /admin/ajax/upload-images HTTP/1.1
@@ -312,7 +314,7 @@ We now have access as user hugo and can access the user.txt flag.
 
 
 
-<h4 align="center">On To Root!</h4>
+<h3 align="center">On To Root!</h3>
 
  The first thing we do is check to see what privileges are available to us by using **sudo -ll**
 

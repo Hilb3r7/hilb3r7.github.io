@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Traverxec
-description: "Hack the box traverxec walkthrough"
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/traverxec_logo.png
 show-avatar: false
+permalink: /walkthroughs/traverxec.html
 ---
 
 
@@ -11,7 +12,7 @@ show-avatar: false
 ![logo](/assets/img/walkthroughs/traverxec_logo.png)
 {: refdef}
 
-<p align="center"><b><font size="3">By: </font> </b><a href="http://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a></p>
+<p align="center"><b><font size="3">By: </font> </b><a href="http://www.hackthebox.eu/home/users/profile/182543">Hilbert</a></p>
 <div style="page-break-after: always;"></div>
 <h2 align="center">Enumeration</h2>
 Starting with a standard nmap scan...
@@ -51,7 +52,7 @@ We will see there is a metasploit module for remote command execution in Nostrom
 
 
 
-<h4 align="center">Exploitation</h4>
+<h3 align="center">Exploitation</h3>
 We load metasploit and then use the nostromo exploit and set the RHOST and LHOST variables
 
 ![metasploit](/assets/img/walkthroughs/traverxec_metasploit.png)
@@ -244,7 +245,7 @@ david@traverxec:~$
 
 as we can see we now have access to the user flag
 
-<h4 align="center">On to Root</h4>
+<h3 align="center">On to Root</h3>
 We see a "bin" folder in the user directory, if we examine the contents we find a script named "server-stats.sh", which if we cat shows us
 
 ```

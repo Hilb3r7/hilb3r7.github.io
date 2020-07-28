@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Granny
-description: "Hack the box Granny walkthrough"
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/granny_logo.png
 show-avatar: false
+permalink: /walkthroughs/granny.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 
 <h2 align="center">Enumeration</h2>
@@ -75,7 +76,7 @@ shows us that we can use MOVE to change a file extension to .asp or .aspx
 
 With that knowledge, let's create an .aspx payload and upload it as a .html file and rename it to .aspx file
 
-<h4 align="center">Explotation</h4>
+<h3 align="center">Explotation</h3>
 
 Let's create a payload with **msfvenom**
 
@@ -181,5 +182,4 @@ Server username: NT AUTHORITY\SYSTEM
 
 We now have full access to the system and can read the user.txt and root.txt flags.
 
-If you found this walkthrough helpful, please consider adding a respect to my profile, thanks
-https://www.hackthebox.eu/home/users/profile/182543
+If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

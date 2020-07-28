@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Postman
-description: "Hack the box Postman walkthrough"
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/postman_logo.png
 show-avatar: false
+permalink: /walkthroughs/postman.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 
 <h2 align="center">Enumeration</h2>
@@ -143,7 +144,7 @@ Matt@Postman:/var/lib/redis$ cat /home/Matt/user.txt
 
 Success! We will also find that we can login to webmin on port 10000 with Matt:computer2008
 
-<h4 align="center">On To Root</h4>
+<h3 align="center">On To Root</h3>
 
 So now with valid credentials we can use CVE-2019-12840 which has a metasploit module. Make sure to set SSL to true as port 10000 is using https
 
@@ -151,6 +152,4 @@ So now with valid credentials we can use CVE-2019-12840 which has a metasploit m
 
 we can now access the root.txt flag.
 
-If you found this walkthrough helpful, please consider adding a respect to my profile, thanks
-
-https://www.hackthebox.eu/home/users/profile/182543
+If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

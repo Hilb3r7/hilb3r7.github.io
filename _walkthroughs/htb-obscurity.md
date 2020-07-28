@@ -1,9 +1,10 @@
 ---
 layout: walkthrough
 title: Obscurity
-description: "Hack the box Obscurity walkthrough"
+description: "Hack The Box walkthrough"
 logo: /assets/img/walkthroughs/obscurity_logo.png
 show-avatar: false
+permalink: /walkthroughs/obscurity.html
 ---
 
 
@@ -12,7 +13,7 @@ show-avatar: false
 {: refdef}
 
 
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilb3r7</a> </p>
+<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
 
 **Cliffs:** Find source code for the webserver in hidden directory and analyze it to figure out RCE that will give low privilege shell. In user directory there is a python encryption script we can use to figure out users password. As user we can run a python script meant to replace SSH that we can use to gain access to roots password hash or simply to access the root flag.
 
@@ -142,8 +143,7 @@ alexandrovichalexandrovichalexandrovichalexandrovichalexandrovichalexandrovichal
 
 The key is **alexandrovich**, which we can now use to decrypt **passwordreminder.txt**, which decrypts to **SecThruObsFTW**, which is the ssh and user pass for robert, we now have access to user.txt
 
-<div style="page-break-after: always;"></div>
-<h4 align="center">On To Root!</h4>
+<h2 align="center">On To Root!</h2>
 So now that we are user we can check out the **BetterSSH.py** file in */home/robert/BetterSSH/*. We could read it before, but as we will see the code is accessing the /etc/shadow file, so we need root permisions to make it work. Which we fortunately have with robert as we can see below
 
 ```
@@ -222,8 +222,4 @@ Every command we enter is prefixed with *sudo -u <username>*, but since the scri
 
 
 
-If you found this walkthrough helpful, please consider adding a respect to my profile, thanks
-https://www.hackthebox.eu/home/users/profile/182543
-
-
-
+If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks
