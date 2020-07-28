@@ -1,11 +1,11 @@
----
+<!-- ---
 layout: walkthrough
 title: Blunder
 description: "Hack The Box Walkthrough"
 logo: /assets/img/walkthroughs/blunder_logo.png
 show-avatar: false
 permalink: /walkthroughs/blunder.html
----
+--- -->
 
 
 {:refdef: style="text-align: center;"}
