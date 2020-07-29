@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Blocky
-description: "Hack The Box walkthrough"
+description: HTB walkthrough
 logo: /assets/img/walkthroughs/blocky_logo.png
 show-avatar: false
 permalink: /walkthroughs/blocky.html
+OS: Linux
+difficulty: Easy
+release: 21 Jul 2017
+creator: <a href="https://www.hackthebox.eu/home/users/profile/2904">Arrexel</a>
+cleared: 3 Nov 2019
 ---
 
 

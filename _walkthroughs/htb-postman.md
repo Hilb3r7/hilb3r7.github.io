@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Postman
-description: "Hack The Box walkthrough"
+description: HTB walkthrough
 logo: /assets/img/walkthroughs/postman_logo.png
 show-avatar: false
 permalink: /walkthroughs/postman.html
+OS: Linux
+difficulty: Easy
+release: 2 Nov 2019
+creator: <a href="https://www.hackthebox.eu/home/users/profile/114053">TheCyberGeek</a>
+cleared: 9 Nov 2019
 ---
 
 

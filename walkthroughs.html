@@ -4,6 +4,13 @@ title: walkthroughs
 description: "Walkthroughs for various CTFs"
 ---
 
+
+<!-- 
+general layout design taken from 
+    https://github.com/chrisrhymes/chrisrhymes.github.io/blob/master/stories.html 
+and inspired by the blog post 
+    https://www.csrhymes.com/development/2017/10/27/multiple-post-types-in-jekyll.html -->
+
 <div class="container">
     <section class="section">
         <div class="columns is-multiline">
@@ -19,9 +26,14 @@ description: "Walkthroughs for various CTFs"
                         <img src="{{ item.logo }}" alt="{{ item.title }}" />
                     </div>
                     <div class="card-content" style="padding-bottom: 0px;">
-                            <p class="title is-5">{{ item.title }}</p>
+                            <p class="title is-5">{{ item.title }} {{ item.description }}</p>
                         <div class="content">
-                            <p>{{ item.description }}</p>
+                            <p><strong>OS:</strong> {{ item.OS }}<br/>
+                                <strong>Difficulty:</strong> {{ item.difficulty }}<br/>
+                                <strong>Release:</strong> {{ item.release}}<br/>
+                                <strong>Creator:</strong> {{ item.creator}}<br/>
+                                <strong>Pwned:</strong> {{ item.cleared}}<br/>
+                            </p>
                         </div>
                     </div>
                     <footer class="card-footer" style="margin-top: 0px;">

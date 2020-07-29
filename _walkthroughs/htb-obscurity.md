@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Obscurity
-description: "Hack The Box walkthrough"
+description: HTB walkthrough
 logo: /assets/img/walkthroughs/obscurity_logo.png
 show-avatar: false
 permalink: /walkthroughs/obscurity.html
+OS: Linux
+difficulty: Medium
+release: 30 Nov 2019
+creator: <a href="https://www.hackthebox.eu/home/users/profile/83743">clubby789</a>
+cleared: 3 Dec 2019
 ---
 
 

@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Granny
-description: "Hack The Box walkthrough"
+description: "HTB walkthrough"
 logo: /assets/img/walkthroughs/granny_logo.png
 show-avatar: false
 permalink: /walkthroughs/granny.html
+OS: Windows
+difficulty: Easy
+release: 12 Apr 2017
+creator: <a href="https://www.hackthebox.eu/home/users/profile/1">ch4p</a>
+cleared: 12 Nov 2019
 ---
 
 

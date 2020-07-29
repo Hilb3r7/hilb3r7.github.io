@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Traverxec
-description: "Hack The Box walkthrough"
+description: HTB walkthrough
 logo: /assets/img/walkthroughs/traverxec_logo.png
 show-avatar: false
 permalink: /walkthroughs/traverxec.html
+OS: Linux
+difficulty: Easy
+release: 16 Nov 2019
+creator: <a href="https://www.hackthebox.eu/home/users/profile/77141">jkr</a>
+cleared: 19 Nov 2019
 ---
 
 

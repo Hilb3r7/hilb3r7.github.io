@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Networked
-description: "Hack The Box walkthrough"
+description: HTB walkthrough
 logo: /assets/img/walkthroughs/networked_logo.png
 show-avatar: false
 permalink: /walkthroughs/networked.html
+OS: Linux
+difficulty: Easy
+release: 24 Aug 2019
+creator: <a href="https://www.hackthebox.eu/home/users/profile/8292">guly</a>
+cleared: 1 Nov 2019
 ---
 
 

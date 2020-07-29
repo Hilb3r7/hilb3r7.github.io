@@ -1,10 +1,15 @@
 ---
 layout: walkthrough
 title: Mango
-description: "Hack The Box walkthrough"
+description: "HTB walkthrough"
 logo: /assets/img/walkthroughs/mango_logo.png
 show-avatar: false
 permalink: /walkthroughs/mango.html
+OS: Linux
+difficulty: Medium 
+release: 26 Oct 2019
+creator: <a href="https://www.hackthebox.eu/home/users/profile/13531">MrR3boot</a>
+cleared: 9 Nov 2019
 ---
 
 
