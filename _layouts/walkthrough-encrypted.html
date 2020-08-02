@@ -1,0 +1,80 @@
+---
+layout: walkthrough
+---
+
+<div id="encrypted-content" style="display: none;">
+	{{ content }}
+</div>
+
+<div id="decryptor">
+	<h3>This walkthrough is encrypted</h3>
+	This is an active machine, to help prevent cheating you need to provide proof of completion.
+	<p><h4>To Unlock:</h4>
+	Enter the root or administrator password hash from the machine. Only the hash (example in red)<br>
+	<strong>example:</strong><br>
+	root:<span style="color: #ff0000">$1$8XHe4V59$Wx31Wx7gMriIFrhOopbhK.</span>:16902:0:99999:7:::
+	Administrator:500:<span style="color: #ff0000">aad3b435b51404eeaad3b435b51404ee:a8c8b7a37513b7eb9308952b814b522b</span>:::
+	
+	<div id="decryptor-input">
+    	<input id="key" type="text" value="">
+    	<input id="decryptBTN" type="button" value="Decrypt">
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" 
+		integrity="sha384-YkYpnhy3j3+zc3fQvzlbh4WGwDgt+06gsGsaApwM1O3IKIsKJk61C0Lr6YvbovUV" 
+		crossorigin="anonymous"></script>
+
+<script>
+	var button = document.getElementById("decryptBTN");
+	button.addEventListener('click', decryption);
+
+	function decryption() {
+		var cipherText = document.getElementById("encrypted-content").querySelector("p").innerHTML;
+		console.log(cipherText);
+		var key = document.getElementById("key").value;
+
+		try {
+			var plainText = decrypt(cipherText, key);
+		} catch (e) {
+			if (e == "emptyKey") alert("You must enter a password");
+			if (e == "wrongKey") alert("Incorrect password");
+			return;
+		}
+
+		try {
+			updateDocument(plainText);
+		} catch (e) {
+			alert("Incorrect password");
+			return;
+		}
+
+	}
+
+	function decrypt(cipherText, key) {
+		if (!key) throw "emptyKey"
+
+		var decrypted = CryptoJS.AES.decrypt(cipherText, key);
+
+		try {
+			var plainText = decrypted.toString(CryptoJS.enc.Utf8);
+		} catch (e) {
+			throw "wrongKey" //decrypion has non UTF-8 bytes, so must be wrong key
+		}
+
+		return plainText;
+	}
+
+	function updateDocument(text) {
+		// no idea how it could decrypt to all UTF-8 and not contain this, but just in case
+		if (!text.includes("<!-- Shall we play a game? -->")) {
+			throw "wrongKey"
+		}
+		var content = document.getElementById("encrypted-content");
+		content.innerHTML = text;
+		content.style.display = '';
+
+		document.getElementById("decryptor").style.display = "none";
+	}
+
+</script>

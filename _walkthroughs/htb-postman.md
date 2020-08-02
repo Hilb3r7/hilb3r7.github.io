@@ -12,15 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/114053">TheCyberG
 cleared: 9 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Logo](/assets/img/walkthroughs/postman_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
-
 <h2 align="center">Enumeration</h2>
 
 Starting with a standard nmap scan...
@@ -156,5 +147,3 @@ So now with valid credentials we can use CVE-2019-12840 which has a metasploit m
 ![root](/assets/img/walkthroughs/postman_root.png)
 
 we can now access the root.txt flag.
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

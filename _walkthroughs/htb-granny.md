@@ -12,15 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/1">ch4p</a>
 cleared: 12 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Blunder](/assets/img/walkthroughs/granny_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
-
 <h2 align="center">Enumeration</h2>
 
 Starting with a standard nmap scan...
@@ -186,5 +177,3 @@ Server username: NT AUTHORITY\SYSTEM
 ```
 
 We now have full access to the system and can read the user.txt and root.txt flags.
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

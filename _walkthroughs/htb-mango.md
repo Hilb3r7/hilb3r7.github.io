@@ -12,15 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/13531">MrR3boot</
 cleared: 9 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Mango](/assets/img/walkthroughs/mango_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
-
 <h2 align="center">Enumeration</h2>
 Starting with a standard nmap scan...
 
@@ -56,15 +47,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 We see **ssh**, **http**, and **https** ports are open. Using our web browser to visit the site on port 80 we see we don't have permission. If we visit the https site (after accepting the certificate) we see
 
-![Search](/assets/img/walkthroughs/Mango_search.png)
+![Search](/assets/img/walkthroughs/mango_search.png)
 
 of which the analytics link takes us to
 
-![analytics](/assets/img/walkthroughs/Mango_analytics.png)
+![analytics](/assets/img/walkthroughs/mango_analytics.png)
 
 which provides us with nothing more than a rabbit hole to go down. If you looked at the SSL cert instead of blindly accepting it (*cough*) you'll see there is another host name. 
 
-![Cert](/assets/img/walkthroughs/Mango_cert.png)
+![Cert](/assets/img/walkthroughs/mango_cert.png)
 
 This was also visible in the nmap scan
 
@@ -97,11 +88,11 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injectio
 
 We can test if this site is vulnerable to noSQL injection. 
 
-![noSQL Test](/assets/img/walkthroughs/Mango_nosqltest.png)
+![noSQL Test](/assets/img/walkthroughs/mango_nosqltest.png)
 
 We have a successful login! Looking at the page we don't see much
 
-![home page](/assets/img/walkthroughs/Mango_UnderPlantation.png)
+![home page](/assets/img/walkthroughs/mango_underplantation.png)
 
 other than there is an admin user. However now that we know the site is vulnerable to noSQL injection, we can get the usernames and passwords in the database.
 
@@ -287,5 +278,3 @@ uid=0(root) gid=0(root) groups=0(root)
 root@mango:~# 
 
 ```
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

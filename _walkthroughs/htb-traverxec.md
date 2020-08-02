@@ -12,13 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/77141">jkr</a>
 cleared: 19 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![logo](/assets/img/walkthroughs/traverxec_logo.png)
-{: refdef}
-
-<p align="center"><b><font size="3">By: </font> </b><a href="http://www.hackthebox.eu/home/users/profile/182543">Hilbert</a></p>
-<div style="page-break-after: always;"></div>
 <h2 align="center">Enumeration</h2>
 Starting with a standard nmap scan...
 
@@ -293,5 +286,3 @@ less does what less is supposed to do, and we can then enter !/bin/bash to escap
 ![less too big](/assets/img/walkthroughs/traverxec_root.png)
 
 Or we can use the **stty** command to change our terminal settings. "stty rows 5" will output only 5 lines when less is used and that will also allow us the opportunity to break out into a shell. Either way we now have access to the root flag.
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

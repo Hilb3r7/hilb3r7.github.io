@@ -12,15 +12,6 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/2904">Arrexel</a>
 cleared: 3 Nov 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Blunder](/assets/img/walkthroughs/blocky_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
-
 <h2 align="center">Enumeration</h2>
 Starting with a standard nmap scan...
 
@@ -109,5 +100,3 @@ root@Blocky:/home/notch#
 ```
 
 which gives us access to the root.txt flag.
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

@@ -12,19 +12,9 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/83743">clubby789<
 cleared: 3 Dec 2019
 ---
 
-
-{:refdef: style="text-align: center;"}
-![Logo](/assets/img/walkthroughs/obscurity_logo.png)
-{: refdef}
-
-
-<p align="center"><font size="3"><b>By:</b></font> <a href="https://www.hackthebox.eu/home/users/profile/182543">Hilbert</a> </p>
-
 **Cliffs:** Find source code for the webserver in hidden directory and analyze it to figure out RCE that will give low privilege shell. In user directory there is a python encryption script we can use to figure out users password. As user we can run a python script meant to replace SSH that we can use to gain access to roots password hash or simply to access the root flag.
 
 <h2 align="center">Enumeration</h2>
-
-**Cliffs:** Find source code for the webserver in hidden directory and analyze it to figure out RCE that will give low privilege shell. In user directory there is a python encryption script we can use to figure out users password. As user we can run a python script meant to replace SSH that we can use to gain access to roots password hash or simply to access the root flag.
 
 
 Starting with standard nmap scan...
@@ -222,9 +212,5 @@ if session['authenticated'] == 1:
         print('Error: '  + e.decode('ascii')) if len(e.decode('ascii')) > 0 else print('')
 ```
 
-Every command we enter is prefixed with *sudo -u <username>*, but since the script is running as root we can just append another *-u* flag on to execute commands as root. Since we have the password for robert we are able to authenticate via the script
+Every command we enter is prefixed with *sudo -u \<username\>*, but since the script is running as root we can just append another *-u* flag on to execute commands as root. Since we have the password for robert we are able to authenticate via the script
 ![method2](/assets/img/walkthroughs/obscurity_method2.png)
-
-
-
-If you found this walkthrough helpful, please consider adding a respect to my <a href="https://www.hackthebox.eu/home/users/profile/182543">profile</a>, thanks

@@ -2,6 +2,9 @@
 _site
 .sass-cache
 .vagrant
+_walkthroughs/*active.md
+encrypt.html
+/assets/img/walkthroughs/active/
 
 # general
 .DS_Store
