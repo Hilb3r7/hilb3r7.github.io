@@ -19,7 +19,8 @@ and inspired by the blog post
                     <p>Here are walkthroughs I have written for various CTFs</p>
                 </div>
             </div>
-            {% for item in site.walkthroughs %}
+            {% assign walkthroughs = site.walkthroughs | sort: 'published' %}
+            {% for item in walkthroughs reversed %}
 			<div class="column is-4">
                 <div class="card">
                     <div class="card-image">

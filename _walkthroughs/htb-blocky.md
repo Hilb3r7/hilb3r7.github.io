@@ -10,6 +10,7 @@ difficulty: Easy
 release: 21 Jul 2017
 creator: <a href="https://www.hackthebox.eu/home/users/profile/2904">Arrexel</a>
 cleared: 3 Nov 2019
+published: 2019 11 03
 ---
 
 <h2 align="center">Enumeration</h2>
