@@ -1,3 +1,3 @@
-My github.io page using the beautifuljekyll theme, Created by [Dean Attali](https://deanattali.com) &middot; [Demo](https://beautifuljekyll.com/)
+My github.io page using the beautifuljekyll theme, created by [Dean Attali](https://deanattali.com) &middot; [Demo](https://beautifuljekyll.com/)
 
-and parts of the bulma clean theme, Created by [Chris Rhymes](https://github.com/chrisrhymes/bulma-clean-theme)
+and parts of the bulma clean theme, created by [Chris Rhymes](https://www.csrhymes.com) &middot; [repo](https://github.com/chrisrhymes/bulma-clean-theme)
