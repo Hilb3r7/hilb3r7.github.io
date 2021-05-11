@@ -21,6 +21,32 @@ and inspired by the blog post
             </div>
             {% assign walkthroughs = site.walkthroughs | sort: 'published' %}
             {% for item in walkthroughs reversed %}
+            {% unless item.child %}
+            {% if item.parent %}
+            <div class="column is-4">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="{{ item.logo }}" alt="{{ item.title }}" />
+                    </div>
+                    <div class="card-content" style="padding-bottom: 0px;">
+                            <p class="title is-5">{{ item.title }} </p>
+                        <div class="content">
+                            <p><strong>Catagories:</strong> {{ item.catagories}}<br/>
+                                <strong>Event Date:</strong> {{ item.event-dates}}<br/>
+                                <strong>Creator:</strong> {{ item.creator}}<br/>
+                            </p>
+                        </div>
+                    </div>
+                    <footer class="card-footer" style="margin-top: 0px;">
+                        <p class="card-footer-item" style="margin-top: 0px; margin-bottom: 0px;">
+                        <span>
+                            <a href="{{ item.url }}" class="button is-info">Writeups</a>
+                        </span>
+                        </p>
+                    </footer>
+                </div>
+            </div>
+            {% else %}
 			<div class="column is-4">
                 <div class="card">
                     <div class="card-image">
@@ -45,8 +71,9 @@ and inspired by the blog post
                         </p>
                     </footer>
                 </div>
-
             </div>
+            {% endif %}
+            {% endunless %}
             {% endfor %}
         </div>
     </section>

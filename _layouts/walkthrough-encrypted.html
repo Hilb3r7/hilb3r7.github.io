@@ -8,9 +8,9 @@ layout: walkthrough
 
 <div id="decryptor">
 	<h3>This walkthrough is encrypted</h3>
-	This is an active machine, to help prevent cheating you need to provide proof of completion.
+	This is an active machine or challenge, to help prevent cheating you need to provide proof of completion.
 	<p><h4>To Unlock:</h4>
-	Enter the root or administrator password hash from the machine. Only the hash (example in red)<br>
+	In the case of a challenge, enter the flag. Otherwise enter the root or administrator password hash from the machine. Only the hash (example in red)<br>
 	<strong>example:</strong><br>
 	root:<span style="color: #ff0000">$1$8XHe4V59$Wx31Wx7gMriIFrhOopbhK.</span>:16902:0:99999:7:::
 	Administrator:500:<span style="color: #ff0000">aad3b435b51404eeaad3b435b51404ee:a8c8b7a37513b7eb9308952b814b522b</span>:::
@@ -31,7 +31,6 @@ layout: walkthrough
 
 	function decryption() {
 		var cipherText = document.getElementById("encrypted-content").querySelector("p").innerHTML;
-		console.log(cipherText);
 		var key = document.getElementById("key").value;
 
 		try {
@@ -75,6 +74,12 @@ layout: walkthrough
 		content.style.display = '';
 
 		document.getElementById("decryptor").style.display = "none";
+
+		// check if we have mathjax, if so we will need to reload it
+		var jax = document.getElementById("MathJax-script");
+		if (jax != null) {
+			MathJax.Hub.Queue(["Typeset",MathJax.Hub]);			
+		}
 	}
 
 </script>
