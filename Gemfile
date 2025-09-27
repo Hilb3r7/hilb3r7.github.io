@@ -6,4 +6,4 @@ gemspec
 
 gem 'jekyll-sitemap'
 gem 'kramdown-parser-gfm'
-
+gem 'jekyll-redirect-from'

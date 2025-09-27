@@ -13,6 +13,7 @@ category: Crypto
 difficulty: 2/4
 cleared: 18 Sep 2021
 published: 2021 09 19
+redirect_from: /walkthroughs/ctf-nonce-sense.html
 ---
 
 **Cliffs:** Server divulges $k$ which allows us to recover the private key. We can then sign any message ourselves and retrieve the flag.

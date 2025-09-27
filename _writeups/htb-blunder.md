@@ -11,6 +11,7 @@ release: 30 May 2020
 creator: <a href="https://www.hackthebox.eu/home/users/profile/94858">egotisticalSW</a>
 cleared: 20 Jun 2020
 published: 2020 06 20
+redirect_from: /walkthroughs/htb-blunder.html
 ---
 
 **Cliffs:** website is running Bludit CMS vulnerable to authenticated RCE and a brute force mitigation bypass. Use CEWL to generate password list and a discovered .txt file for username and then brute force the creds. Exploit RCE for reverse shell. View a bludit database php file for creds to escalate to user. Exploit sudo vulnerability for root access.

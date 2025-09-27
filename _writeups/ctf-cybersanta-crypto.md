@@ -13,6 +13,7 @@ category: Crypto
 difficulty: 1/4
 cleared: 05 Dec 2021
 published: 2021 12 05
+redirect_from: /walkthroughs/ctf-cybersanta-crypto.html
 ---
 
 
