@@ -1,11 +1,11 @@
 ---
-layout: walkthrough-encrypted
+layout: writeup-encrypted
 title: Composition
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/composition_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/composition_logo.png
 show-avatar: false
 latex: true
-permalink: /walkthroughs/composition.html
+permalink: /writeups/composition.html
 OS: Crypto Challenge
 difficulty: Medium
 release: 02 Apr 2021

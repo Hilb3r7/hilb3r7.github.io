@@ -1,10 +1,10 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Traverxec
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/traverxec_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/traverxec_logo.png
 show-avatar: false
-permalink: /walkthroughs/traverxec.html
+permalink: /writeups/traverxec.html
 OS: Linux
 difficulty: Easy
 release: 16 Nov 2019
@@ -39,7 +39,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 We see nothing but **22** and **80** are open, and navigating to the webpage we don't see much of interest
 
-![homepage](/assets/img/walkthroughs/traverxec_homepage.png)
+![homepage](/assets/img/writeups/traverxec_homepage.png)
 
 However if we run **searchsploit** on nostromo
 
@@ -54,7 +54,7 @@ We will see there is a metasploit module for remote command execution in Nostrom
 <h3 align="center">Exploitation</h3>
 We load metasploit and then use the nostromo exploit and set the RHOST and LHOST variables
 
-![metasploit](/assets/img/walkthroughs/traverxec_metasploit.png)
+![metasploit](/assets/img/writeups/traverxec_metasploit.png)
 
 and get a reverse shell as low privilege user www-data.
 
@@ -110,7 +110,7 @@ we know that david is the user of the machine from the /etc/passwd file, and now
 
 We copy and paste the hash into a file called hash.txt and then run john like so
 
-![Nowonly4me](/assets/img/walkthroughs/traverxec_nowonly4me.png)
+![Nowonly4me](/assets/img/writeups/traverxec_nowonly4me.png)
 
 We now have the password "Nowonly4me", but we'll find that it wont work for either SSH or su'ing to david. If we dig around a little more in the /var/nostromo/conf/ folder and cat the nhttpd.conf file 
 
@@ -176,11 +176,11 @@ www-data@traverxec:/home/david/public_www/protected-file-area$
 
 It seems can't access the important looking backup-ssh files, however since we can read the file it's possible for us to move it to our computer to extract it by using **base64**.
 
-![base64 encode](/assets/img/walkthroughs/traverxec_base64encode.png)
+![base64 encode](/assets/img/writeups/traverxec_base64encode.png)
 
 We simply copy the output and then paste it to a file on our computer, decode it, and then unzip as normal
 
-![base64 decode](/assets/img/walkthroughs/traverxec_base64decode.png)
+![base64 decode](/assets/img/writeups/traverxec_base64decode.png)
 
 If we couldn't think of a way to access the file and got stuck, and tried looking at 10.10.10.165/david/ to no avail, as with all things when we stuck or frustrated, lets RTFM. Looking up the documentation for nostromo which we can find at http://www.nazgul.ch/dev/nostromo_man.html, we see the following
 
@@ -207,14 +207,14 @@ HOMEDIRS
 
 Bingo! Trying 10.10.10.165/~david/ we are greeted with
 
-![~david](/assets/img/walkthroughs/traverxec_dave.png)
+![~david](/assets/img/writeups/traverxec_dave.png)
 
 and 10.10.10.165/~david/protected-file-area/ gets us something we can successfully enter in the credentials we found earlier
-![login](/assets/img/walkthroughs/traverxec_login.png)
+![login](/assets/img/writeups/traverxec_login.png)
 
 which then gives us access to the backup-ssh file
 
-![protected](/assets/img/walkthroughs/traverxec_protected.png)
+![protected](/assets/img/writeups/traverxec_protected.png)
 
 Extracting the tar file we see it's as advertised a backup of the ssh identity files.
 
@@ -228,7 +228,7 @@ home/david/.ssh/id_rsa.pub
 
 Let's crack the id_rsa file and then try and use it to SSH in as david. To do this first we need to convert it to a format we can use in john the ripper. We will use a python script included with john called ssh2john.py. Then we can crack the resulting file as we did the previous hash.
 
-![hunter](/assets/img/walkthroughs/traverxec_hunter.png)
+![hunter](/assets/img/writeups/traverxec_hunter.png)
 
 Now using that ssh key and the password "hunter" we SSH in as david.
 
@@ -265,25 +265,25 @@ Examining and running it we see it's basically just outputting a header (the oth
 
 If we look at GTFObins for journalctl (https://gtfobins.github.io/gtfobins/journalctl/) we see an important bit of information.
 
-![gtfobins](/assets/img/walkthroughs/traverxec_gtfobins.png)
+![gtfobins](/assets/img/writeups/traverxec_gtfobins.png)
 
 So journalctl is using **less** to write to the screen, and if we follow the link we see that we can break out of less into an interactive shell.
 
-![gtfobins less](/assets/img/walkthroughs/traverxec_gtfobins_less.png)
+![gtfobins less](/assets/img/writeups/traverxec_gtfobins_less.png)
 
 There may or may not be a problem here depending on how big your terminal window is. If our terminal window is large enough to display everything outputted both vertically and horizontally then less will never give us the opportunity to break out into a shell, it will just output everything like so
 
-![less too big](/assets/img/walkthroughs/traverxec_less_toobig.png)
+![less too big](/assets/img/writeups/traverxec_less_toobig.png)
 
 But if we change the size of our terminal so that it is too narrow to display the entire line
 
-![less too big](/assets/img/walkthroughs/traverxec_less_too_narrow.png)
+![less too big](/assets/img/writeups/traverxec_less_too_narrow.png)
 
 or not tall enough to display all the lines
-![less too big](/assets/img/walkthroughs/traverxec_less_too_short.png)
+![less too big](/assets/img/writeups/traverxec_less_too_short.png)
 
 less does what less is supposed to do, and we can then enter !/bin/bash to escape into a root shell
 
-![less too big](/assets/img/walkthroughs/traverxec_root.png)
+![less too big](/assets/img/writeups/traverxec_root.png)
 
 Or we can use the **stty** command to change our terminal settings. "stty rows 5" will output only 5 lines when less is used and that will also allow us the opportunity to break out into a shell. Either way we now have access to the root flag.

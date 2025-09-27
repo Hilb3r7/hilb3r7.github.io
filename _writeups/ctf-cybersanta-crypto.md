@@ -1,14 +1,14 @@
 ---
-layout: walkthrough
+layout: writeup
 title: CyberSanta
-description: CTF Crypto walkthrough
+description: CTF Crypto writeup
 ctf: true
 event: CyberSanta 2021 CTF
 URL: <a href="https://ctf.hackthebox.com/ctfs">ctf.hackthebox.com</a>
-logo: /assets/img/walkthroughs/cyber_santa_logo.png
+logo: /assets/img/writeups/cyber_santa_logo.png
 show-avatar: false
 latex: true
-permalink: /walkthroughs/cybersanta_crypto.html
+permalink: /writeups/cybersanta_crypto.html
 category: Crypto
 difficulty: 1/4
 cleared: 05 Dec 2021
@@ -37,7 +37,7 @@ Jump to:<br><a href="#1">Day One</a> (Common Mistake)<br>
 
 <h3 align="center">Common Mistake</h3>
 
-![Logo](/assets/img/walkthroughs/common_mistake_logo.png){: .center-image}
+![Logo](/assets/img/writeups/common_mistake_logo.png){: .center-image}
 
 
 
@@ -264,7 +264,7 @@ Knowing that this challenge involves the use of RSA is just a little bit of expe
 
 <h3 align="center">XMAS Spirit</h3>
 
-![Logo](/assets/img/walkthroughs/xmas_spirit_logo.png){: .center-image}
+![Logo](/assets/img/writeups/xmas_spirit_logo.png){: .center-image}
 
 
 
@@ -421,7 +421,7 @@ with open('letter.pdf', 'wb') as f:
 
 **Flagged!**
 
-![flag](/assets/img/walkthroughs/xmas_spirit_letter.png)
+![flag](/assets/img/writeups/xmas_spirit_letter.png)
 
 Knowing how to undo the encryption comes from familiarity with modular arithmetic and related concepts.  Often googling bits of code if you are unfamiliar or stuck can get you helpful information. Here googling "How to reverse (a*byte + b) % mod" gets you lots of hits about bytes and bit related things which we don't want, but simply taking out that word so we lose those results and replacing it with "How to reverse (ax + b) % mod" provides the answers you would need.
 
@@ -433,7 +433,7 @@ Knowing about magic bytes is also a function of experience as it's something tha
 
 <h3 align="center">Meet Me Halfway</h3>
 
-![Logo](/assets/img/walkthroughs/meet_me_halfway_logo.png){: .center-image}
+![Logo](/assets/img/writeups/meet_me_halfway_logo.png){: .center-image}
 
 
 
@@ -565,7 +565,7 @@ The best general approach if you are struggling is to attempt to figure out the 
 
 <h3 align="center">Missing Reindeer</h3>
 
-![Logo](/assets/img/walkthroughs/missing_reindeer_logo.png){: .center-image}
+![Logo](/assets/img/writeups/missing_reindeer_logo.png){: .center-image}
 
 
 
@@ -769,7 +769,7 @@ Also, there is always the "common RSA CTF challenges" search. Especially for a C
 
 <h3 align="center">Warehouse Maintenance</h3>
 
-![Logo](/assets/img/walkthroughs/warehouse_maintenance_logo.png){: .center-image}
+![Logo](/assets/img/writeups/warehouse_maintenance_logo.png){: .center-image}
 
 
 

@@ -1,10 +1,10 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Postman
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/postman_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/postman_logo.png
 show-avatar: false
-permalink: /walkthroughs/postman.html
+permalink: /writeups/postman.html
 OS: Linux
 difficulty: Easy
 release: 2 Nov 2019
@@ -43,7 +43,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 We see a number of open ports. Checking what is on port 80 with our browser doesn't show us much of interest
 
-![Cyber Geek](/assets/img/walkthroughs/postman_webpage.png)
+![Cyber Geek](/assets/img/writeups/postman_webpage.png)
 
 Checking searchsploit for webmin 1.910 we see that there is an RCE with root privileges as detailed by CVE-2019-12840
 
@@ -145,6 +145,6 @@ Success! We will also find that we can login to webmin on port 10000 with Matt:c
 
 So now with valid credentials we can use CVE-2019-12840 which has a metasploit module. Make sure to set SSL to true as port 10000 is using https
 
-![root](/assets/img/walkthroughs/postman_root.png)
+![root](/assets/img/writeups/postman_root.png)
 
 we can now access the root.txt flag.

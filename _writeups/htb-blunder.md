@@ -1,10 +1,10 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Blunder
 description: "HTB Walkthrough"
-logo: /assets/img/walkthroughs/blunder_logo.png
+logo: /assets/img/writeups/blunder_logo.png
 show-avatar: false
-permalink: /walkthroughs/blunder.html
+permalink: /writeups/blunder.html
 OS: Linux
 difficulty: Easy
 release: 30 May 2020
@@ -37,7 +37,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 Using our browser to see the http running on port 80, it looks like some kind of CMS is being used to create the webpage.
 
-![webpage](/assets/img/walkthroughs/blunder_webpage.png)
+![webpage](/assets/img/writeups/blunder_webpage.png)
 
 Running
 
@@ -60,7 +60,7 @@ with the appropriate wordlist yields the following
 
 If we look at the /admin page, we see it's titled <b>Bludit</b>, and if we look at the page source we see
 
-![pagesource](/assets/img/walkthroughs/blunder_pagesource.png)
+![pagesource](/assets/img/writeups/blunder_pagesource.png)
 
 Via google we see that Bludit is indeed a CMS, and also that version 3.9.2 is vulnerable to remote code execution, however we need a valid username and password. It also is vulnerable to a brute force mitigation bypass. Rarely is brute forcing the path in a CTF, but it is rather too convenient that if we had credentials we would have a foothold AND there is an exploit involving brute forcing. It is still worth spending a small bit of time looking at other things so we don't plunge head first into a rabbit hole. With no other services running here though, we don't need to spend long.
 
@@ -143,7 +143,7 @@ We change the script to use 'ceweled.txt' and run it again, however we are still
 
 What if instead of not having a correct password, we don't have the correct username? In the <b>todo.txt</b> gobuster turned up, we see
 
-![todo.txt](/assets/img/walkthroughs/blunder_todo.png)
+![todo.txt](/assets/img/writeups/blunder_todo.png)
 
 This suggests that Fergus has access to the page. So let's try the ceweled.txt wordlist again, this time with a username of 'fergus'.
 
@@ -241,7 +241,7 @@ Whichever method you choose, we now have access as user **www-data**.
 
 One of the things we could have done when looking around a bit more before jumping into brute forcing was explore the structure of the webpage after we learned Bludit was running on it. We would have seen that there was a databases directory
 
-![databases](/assets/img/walkthroughs/blunder_databases.png)
+![databases](/assets/img/writeups/blunder_databases.png)
 
 We had to use a password to login, and those have to be stored somewhere, so this seems like a good place to look now that we have access. Using the find command and outputting errors to /dev/null so our screen isn't a mess of "Permission denied"'s we see
 
@@ -294,7 +294,7 @@ www-data@blunder:/var/www/bludit-3.10.0a/bl-content/databases$ cat users.php
 
 One of the first things we typically do when gaining access to a box is look at /etc/passwd and scan the /home folder. If we've done that already here, we will recognize Hugo as one of the local users and the one with the user.txt flag, so this is promising. Since his password is unsalted, unlike the admins, we can quickly check a rainbow table to see if it has been cracked. Checking <a hred="https://crackstation.net">CrackStation</a> we see
 
-![cracked](/assets/img/walkthroughs/blunder_cracked.png)
+![cracked](/assets/img/writeups/blunder_cracked.png)
 
 Let's see if he also uses this password for his Linux user account.
 

@@ -1,11 +1,11 @@
 ---
-layout: walkthrough-encrypted
+layout: writeup-encrypted
 title: BabyEncryption
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/babyencryption_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/babyencryption_logo.png
 show-avatar: false
 latex: true
-permalink: /walkthroughs/babyencryption.html
+permalink: /writeups/babyencryption.html
 OS: Crypto Challenge
 difficulty: Very Easy
 release: 28 May 2021

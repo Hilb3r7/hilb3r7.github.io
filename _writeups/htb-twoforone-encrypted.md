@@ -1,11 +1,11 @@
 ---
-layout: walkthrough-encrypted
+layout: writeup-encrypted
 title: TwoForOne
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/twoforone_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/twoforone_logo.png
 show-avatar: false
 latex: true
-permalink: /walkthroughs/twoforone.html
+permalink: /writeups/twoforone.html
 OS: Crypto Challenge
 difficulty: Easy
 release: 04 Dec 2020

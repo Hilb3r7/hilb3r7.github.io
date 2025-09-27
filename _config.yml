@@ -14,7 +14,7 @@ author: Hilb3r7
 navbar-links:
   home: "index"
   About: "about"
-  walkthroughs: "walkthroughs"
+  writeups: "writeups"
   
 
 # --- Logo --- #
@@ -32,7 +32,7 @@ round-avatar: true
 
 # ---- Collections --- #
 collections:
-  walkthroughs:
+  writeups:
     output: true
   DOABBH:
     output: true

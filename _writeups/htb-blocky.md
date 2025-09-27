@@ -1,10 +1,10 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Blocky
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/blocky_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/blocky_logo.png
 show-avatar: false
-permalink: /walkthroughs/blocky.html
+permalink: /writeups/blocky.html
 OS: Linux
 difficulty: Easy
 release: 21 Jul 2017
@@ -43,7 +43,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 We see there is a wordpress page running on port 80
 
-<img src="/assets/img/walkthroughs/blocky_wordpress.png" alt="wordpress" style="zoom: 50%;" />
+<img src="/assets/img/writeups/blocky_wordpress.png" alt="wordpress" style="zoom: 50%;" />
 
 
 
@@ -73,11 +73,11 @@ with the appropriate wordlist yielded the following results
 
 We see several interesting possibilities for further enumeration and exploit paths, what we need  however is in /plugins
 
-![plugins](/assets/img/walkthroughs/blocky_plugins.png)
+![plugins](/assets/img/writeups/blocky_plugins.png)
 
 downloading both these files and looking at them with **jd-gui** shows us the following
 
-![blockycore](/assets/img/walkthroughs/blocky_blockycore.png)
+![blockycore](/assets/img/writeups/blocky_blockycore.png)
 
 This login and password will get us into the phpmyadmin portal, where we can look at the mySQL wordpress users table and find there is a user named **notch**, or more simply we can direct our browser to http://10.10.10.37/?author=1 and get the user name there.
 

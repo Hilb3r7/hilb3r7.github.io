@@ -1,14 +1,14 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Nonce-Sense
-description: CTF walkthrough
+description: CTF writeup
 ctf: true
 event: RomHack 2021 CTF
 URL: <a href="https://ctf.hackthebox.com/ctfs">ctf.hackthebox.com</a>
-logo: /assets/img/walkthroughs/nonce-sense_logo.png
+logo: /assets/img/writeups/nonce-sense_logo.png
 show-avatar: false
 latex: true
-permalink: /walkthroughs/nonce-sense.html
+permalink: /writeups/nonce-sense.html
 category: Crypto
 difficulty: 2/4
 cleared: 18 Sep 2021
@@ -23,11 +23,11 @@ published: 2021 09 19
 
 
 
-![Logo](/assets/img/walkthroughs/nonce-sense_info.png){: .center-image }
+![Logo](/assets/img/writeups/nonce-sense_info.png){: .center-image }
 
 Connecting to the instance we see this looks like a pretty straight forward crypto challenge setup.
 
-![setup](/assets/img/walkthroughs/nonce-sense_setup.png)
+![setup](/assets/img/writeups/nonce-sense_setup.png)
 
 We can have the server sign or verify messages as well as provide us with some needed info. Typically that means we are going to have to figure out how to forge a signature for a specific message in order to get the flag, and if we look at the provided code, we see that is indeed the case. Here is the snippet from the code that handles verification
 
@@ -119,11 +119,11 @@ s \equiv k^{-1}(H(m) + xr) &\pmod{q}
 
 All we need to do now is plug and chug, so let's grab the public key,
 
-![public key](/assets/img/walkthroughs/nonce-sense_pubkey.png)
+![public key](/assets/img/writeups/nonce-sense_pubkey.png)
 
 sign a message,
 
-![sign](/assets/img/walkthroughs/nonce-sense_sign.png)
+![sign](/assets/img/writeups/nonce-sense_sign.png)
 
 and input the appropriate values into the forumula to solve for the private key. I used the function below.
 
@@ -136,15 +136,15 @@ def crack_private_key(r, S, k, q, msg):
     return x % q
 ```
 
-![private key](/assets/img/walkthroughs/nonce-sense_privkey.png)
+![private key](/assets/img/writeups/nonce-sense_privkey.png)
 
 Now that we have the value for the private key we can use pycrptodome to sign the message *'give me flag'*. [[doc1]](https://pycryptodome.readthedocs.io/en/latest/src/public_key/dsa.html)[[doc2]](https://pycryptodome.readthedocs.io/en/latest/src/signature/dsa.html) [[src]](https://github.com/Legrandin/pycryptodome/blob/master/lib/Crypto/Signature/DSS.py)
 
-![signing](/assets/img/walkthroughs/nonce-sense_flagsign.png)
+![signing](/assets/img/writeups/nonce-sense_flagsign.png)
 
  and use the signature to retrieve the flag
 
-![flag](/assets/img/walkthroughs/nonce-sense_flag.png)
+![flag](/assets/img/writeups/nonce-sense_flag.png)
 
 
 
@@ -158,11 +158,11 @@ msg = [ a ^ b for (a,b) in zip(msg, cycle(KEY)) ]
 
 Even if they hadn't so nicely printed out the value of $k$ for us, this is still a terribly insecure implementation and would be trivial to break. The value for $k$ is dependent on the size of the message, send a single byte and $k$ ends up as a value between 0-255. You could brute force that with your trusty TI-85! Even without knowing what algorithm was being implemented you could quickly find out there is a problem with some fuzzing. Look what happens when we send it this single character, even with me doing their job for them and hiding the value of $k$ it's clear this is b0rked.
 
-![oops](/assets/img/walkthroughs/nonce-sense_oops.png)
+![oops](/assets/img/writeups/nonce-sense_oops.png)
 
 This happens because *'v'* is the value of the first character of the key. Anything XORed with itself is zero. With $k = 0$ the solution to $r =(g^{k} \mod{p}) \mod{q}$ is simply 1. We can use the fact that anything XORed with zero is itself to retrieve the value of KEY. We simply send a bunch of null bytes (CTRL-SHIFT-@) and voila
 
-![KEY](/assets/img/walkthroughs/nonce-sense_key.png)
+![KEY](/assets/img/writeups/nonce-sense_key.png)
 
 a key 12 whole bites long before repeating. *venividivinci* indeed!
 

