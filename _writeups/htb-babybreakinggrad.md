@@ -12,7 +12,7 @@ creator: <a href="https://www.hackthebox.eu/home/users/profile/95">makelarisjr</
 cleared: 08 Jan 2021
 published: 2021 01 12
 comments_id: 3
-redirect_from: /walkthroughs/htb-babybreakinggrad.html
+redirect_from: /walkthroughs/babybreakinggrad.html
 ---
 
 **Cliffs:** Analyze the web site source code, and see that user controlled input is being run through an evaluation function provided by the static-eval package. Look through the static-eval github repo and find a fix for a bug that is still present in the older version running on our website. Craft it so that we can execute system commands and get the output via error messages.

@@ -9,7 +9,7 @@ permalink: /writeups/cyberapocalypse2021.html
 event-dates: 19 - 23 Apr 2021
 published: false
 creator: <a href="https://www.hackthebox.eu/">HackTheBox</a>
-redirect_from: /walkthroughs/ctf-cyberapocalypse2021.html
+redirect_from: /walkthroughs/cyberapocalypse2021.html
 ---
 
 what what what

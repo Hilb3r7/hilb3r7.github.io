@@ -9,7 +9,7 @@ permalink: /writeups/extortion.html
 difficulty: 1/4?
 creator: <a href="https://www.hackthebox.eu/home/users/profile/">????</a>
 published: false
-redirect_from: /walkthroughs/ctf-extortion.html
+redirect_from: /walkthroughs/extortion.html
 ---
 
 If we check out the main page we see  a few links.

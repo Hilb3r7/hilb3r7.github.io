@@ -11,7 +11,7 @@ release: 12 Apr 2017
 creator: <a href="https://www.hackthebox.eu/home/users/profile/1">ch4p</a>
 cleared: 12 Nov 2019
 published: 2019 11 12
-redirect_from: /walkthroughs/htb-granny.html
+redirect_from: /walkthroughs/granny.html
 ---
 
 <h2 align="center">Enumeration</h2>

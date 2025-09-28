@@ -11,7 +11,7 @@ release: 24 Aug 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/8292">guly</a>
 cleared: 1 Nov 2019
 published: 2019 11 01
-redirect_from: /walkthroughs/htb-networked.html
+redirect_from: /walkthroughs/networked.html
 ---
 
 <h2 align="center">Enumeration</h2>

@@ -11,7 +11,7 @@ release: 21 Mar 2020
 creator: <a href="https://www.hackthebox.eu/home/users/profile/2984">mrb3n</a>
 cleared: 29 Jun 2020
 published: 2020 06 29
-redirect_from: /walkthroughs/htb-remote.html
+redirect_from: /walkthroughs/remote.html
 ---
 
 **Cliffs:** mount nfs share containing backup of website running Umbraco CMS vulnerable to RCE, get creds from database file and exploit RCE for reverse shell as user. Two paths to root, UsoSvc service exploit, or teamviewer password vulnerability for creds to windRM login.

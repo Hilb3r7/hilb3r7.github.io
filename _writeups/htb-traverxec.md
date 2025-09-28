@@ -11,7 +11,7 @@ release: 16 Nov 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/77141">jkr</a>
 cleared: 19 Nov 2019
 published: 2019 11 19
-redirect_from: /walkthroughs/htb-traverxec.html
+redirect_from: /walkthroughs/traverxec.html
 ---
 
 <h2 align="center">Enumeration</h2>

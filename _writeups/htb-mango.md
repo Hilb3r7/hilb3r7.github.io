@@ -11,7 +11,7 @@ release: 26 Oct 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/13531">MrR3boot</a>
 cleared: 9 Nov 2019
 published: 2019 11 09
-redirect_from: /walkthroughs/htb-mango.html
+redirect_from: /walkthroughs/mango.html
 ---
 
 <h2 align="center">Enumeration</h2>
