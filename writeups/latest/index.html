@@ -1,0 +1,9 @@
+---
+layout: default
+title: "Latest Writeups"
+---
+
+<h1>Latest Writeups</h1>
+
+{% assign items = site.writeups | sort: 'published' | reverse | slice: 0, 24 %}
+{% include writeup-grid.html items=items %}

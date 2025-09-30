@@ -1,0 +1,9 @@
+---
+layout: default
+title: "HTB • Rev"
+---
+
+<h1>HTB • Rev</h1>
+{% assign htb = site.writeups | where: "platform", "HTB" %}
+{% assign items = htb | where: "category", "Rev" | sort: "published" | reverse %}
+{% include writeup-grid.html items=items %}

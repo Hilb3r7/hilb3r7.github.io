@@ -1,0 +1,42 @@
+<div class="filters">
+  <input id="q" type="search" placeholder="Search title, summary, tags…" />
+  {% if filter_platform == blank %}
+  <select id="platform"><option value="">All Platforms</option>
+    {% assign plats = items | map: "platform" | uniq | sort %}
+    {% for p in plats %}<option>{{ p }}</option>{% endfor %}
+  </select>
+  {% endif %}
+  <select id="category"><option value="">All Categories</option>
+    {% assign cats = items | map: "category" | uniq | sort %}
+    {% for c in cats %}{% if c %}<option>{{ c }}</option>{% endif %}{% endfor %}
+  </select>
+  <select id="difficulty"><option value="">All Difficulties</option>
+    {% assign diffs = items | map: "difficulty" | uniq | sort %}
+    {% for d in diffs %}{% if d %}<option>{{ d }}</option>{% endif %}{% endfor %}
+  </select>
+</div>
+
+<script>
+(function() {
+  const q = document.getElementById('q');
+  const plat = document.getElementById('platform');
+  const cat = document.getElementById('category');
+  const diff = document.getElementById('difficulty');
+  const cards = Array.from(document.querySelectorAll('#grid .card'));
+  function match(card) {
+    const text = (card.dataset.title + ' ' + card.dataset.summary + ' ' + card.dataset.tags).toLowerCase();
+    const okQ = !q.value || text.includes(q.value.toLowerCase());
+    const okP = !plat || !plat.value || card.dataset.platform === plat.value;
+    const okC = !cat.value || card.dataset.category === cat.value;
+    const okD = !diff.value || card.dataset.difficulty === diff.value;
+    return okQ && okP && okC && okD;
+  }
+  function render(){ cards.forEach(c => c.style.display = match(c) ? '' : 'none'); }
+  [q, plat, cat, diff].forEach(el => el && el.addEventListener('input', render));
+})();
+</script>
+
+<style>
+.filters { display:flex; gap:.5rem; margin:.75rem 0 1.25rem; flex-wrap:wrap }
+.filters input, .filters select { padding:.4rem .6rem }
+</style>

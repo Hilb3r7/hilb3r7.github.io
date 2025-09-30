@@ -1,0 +1,20 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.title }} – Writeups</title>
+  <link href="{{ site.url }}/feed-writeups.xml"/>
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.url }}/</id>
+  {% assign items = site.writeups | sort: 'date' | reverse | slice: 0, 30 %}
+  {% for post in items %}
+    <entry>
+      <title>{{ post.title | xml_escape }}</title>
+      <link href="{{ site.url }}{{ post.url }}"/>
+      <id>{{ site.url }}{{ post.url }}</id>
+      <updated>{{ post.date | date_to_xmlschema }}</updated>
+      <summary>{{ post.summary | xml_escape }}</summary>
+    </entry>
+  {% endfor %}
+</feed>

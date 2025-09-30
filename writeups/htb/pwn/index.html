@@ -1,0 +1,9 @@
+---
+layout: default
+title: "HTB • Pwn"
+---
+
+<h1>HTB • Pwn</h1>
+{% assign htb = site.writeups | where: "platform", "HTB" %}
+{% assign items = htb | where: "category", "Pwn" | sort: "published" | reverse %}
+{% include writeup-grid.html items=items %}

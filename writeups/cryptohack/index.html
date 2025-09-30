@@ -1,0 +1,17 @@
+---
+layout: default
+title: "CryptoHack Writeups"
+mode: tiles   # <-- change to 'grid' later to enable Hybrid here
+---
+
+<h1>CryptoHack Writeups</h1>
+
+{% assign items = site.writeups | where: "platform", "CryptoHack" | sort: "published" | reverse %}
+{% if page.mode == 'grid' %}
+  {% assign filter_platform = "CryptoHack" %}
+  {% include writeup-filters.html items=items filter_platform=filter_platform %}
+  {% include writeup-grid.html items=items %}
+{% else %}
+  {% assign page.basepath = '/writeups/cryptohack' %}
+  {% include writeup-category-tiles.html items=items %}
+{% endif %}

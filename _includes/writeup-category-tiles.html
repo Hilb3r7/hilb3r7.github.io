@@ -1,0 +1,20 @@
+{% comment %} expects: items = filtered collection (e.g., HTB only) {% endcomment %}
+{% assign cats = items | map: "category" | uniq | sort %}
+<div class="tiles">
+  {% for c in cats %}
+    {% if c and c != '' %}
+      {% assign slug = c | downcase | replace: ' ', '-' | replace: '/', '-' | replace: '.', '-' %}
+      <a class="tile" href="{{ page.url | append: slug | append: '/' | relative_url }}">
+        <h3>{{ c }}</h3>
+        <p>{{ items | where: "category", c | size }} writeups</p>
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<style>
+.tiles { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin: 1rem 0; }
+.tile { border:1px solid #3333; border-radius:12px; padding:1rem; text-decoration:none; color:inherit }
+.tile h3 { margin:0 0 .35rem; }
+.tile p { margin:0; opacity:.85; }
+</style>

@@ -1,0 +1,9 @@
+---
+layout: default
+title: "HTB • Boxes"
+---
+
+<h1>HTB • Boxes</h1>
+{% assign htb = site.writeups | where: "platform", "HTB" %}
+{% assign items = htb | where: "category", "Boxes" | sort: "published" | reverse %}
+{% include writeup-grid.html items=items %}

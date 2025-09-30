@@ -1,0 +1,14 @@
+<ul id="grid" class="grid">
+  {% for i in items %}
+    {% include writeup-card.html item=i %}
+  {% endfor %}
+</ul>
+
+<style>
+.grid { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px }
+.card { border:1px solid #3333; border-radius:12px; overflow:hidden; }
+.card img { width:100%; height:140px; object-fit:cover }
+.card h3 { margin:.6rem .8rem .3rem; font-size:1.05rem }
+.card .meta, .card .sum { margin: 0 .8rem .6rem; font-size:.9rem; opacity:.85 }
+.card a { text-decoration:none; color:inherit; display:block }
+</style>

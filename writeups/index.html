@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Writeups"
+---
+
+<h1>Writeups</h1>
+<p>Select a section:</p>
+
+<div class="tiles">
+  <a class="tile" href="{{ '/writeups/latest/' | relative_url }}"><h3>Latest</h3><p>Newest across everything</p></a>
+  <a class="tile" href="{{ '/writeups/htb/'    | relative_url }}"><h3>HTB</h3><p>Web, Pwn, etc.</p></a>
+  <a class="tile" href="{{ '/writeups/ctf/'    | relative_url }}"><h3>CTFs</h3><p>Event writeups</p></a>
+  <a class="tile" href="{{ '/writeups/cryptohack/' | relative_url }}"><h3>CryptoHack</h3><p>Crypto challenges</p></a>
+  <a class="tile" href="{{ '/writeups/misc/'   | relative_url }}"><h3>Misc</h3><p>Other topics</p></a>
+</div>
+
+<style>
+.tiles { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; margin: 1rem 0; }
+.tile { border:1px solid #3333; border-radius:12px; padding:1rem; text-decoration:none; color:inherit }
+.tile h3 { margin:0 0 .35rem; }
+.tile p { margin:0; opacity:.85; }
+</style>

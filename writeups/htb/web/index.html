@@ -1,0 +1,9 @@
+---
+layout: default
+title: "HTB • Web"
+---
+
+<h1>HTB • Web</h1>
+{% assign htb = site.writeups | where: "platform", "HTB" %}
+{% assign items = htb | where: "category", "Web" | sort: "published" | reverse %}
+{% include writeup-grid.html items=items %}
