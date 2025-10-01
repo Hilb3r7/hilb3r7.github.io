@@ -1,17 +1,16 @@
 ---
 layout: writeup
-title: Mango
-description: "HTB writeup"
-logo: /assets/img/writeups/mango_logo.png
 show-avatar: false
-permalink: /writeups/mango.html
+redirect_from: /walkthroughs/mango.html
+title: Mango
+logo: /assets/img/writeups/htb/boxes/mango/mango_logo.png
+platform: HTB
+category: Boxes
 OS: Linux
 difficulty: Medium 
 release: 26 Oct 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/13531">MrR3boot</a>
-cleared: 9 Nov 2019
 published: 2019 11 09
-redirect_from: /walkthroughs/mango.html
 ---
 
 <h2 align="center">Enumeration</h2>
@@ -49,15 +48,15 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 We see **ssh**, **http**, and **https** ports are open. Using our web browser to visit the site on port 80 we see we don't have permission. If we visit the https site (after accepting the certificate) we see
 
-![Search](/assets/img/writeups/mango_search.png)
+![Search](/assets/img/writeups/htb/boxes/mango/mango_search.png)
 
 of which the analytics link takes us to
 
-![analytics](/assets/img/writeups/mango_analytics.png)
+![analytics](/assets/img/writeups/htb/boxes/mango/mango_analytics.png)
 
 which provides us with nothing more than a rabbit hole to go down. If you looked at the SSL cert instead of blindly accepting it (*cough*) you'll see there is another host name. 
 
-![Cert](/assets/img/writeups/mango_cert.png)
+![Cert](/assets/img/writeups/htb/boxes/mango/mango_cert.png)
 
 This was also visible in the nmap scan
 
@@ -82,7 +81,7 @@ ff02::2 ip6-allrouters
 
 and then visit that site with our browser on the standard port, we are greeted by a login page
 
-![staging-order](/assets/img/writeups/mango_staging-order.png)
+![staging-order](/assets/img/writeups/htb/boxes/mango/mango_staging-order.png)
 
 Here is where the name for the box comes into play. Mango is supposed to make you think of MongoDB which is a popular web backend. MongoDB uses noSQL. By using Burp Suite and some information from this site
 
@@ -90,11 +89,11 @@ https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/NoSQL%20Injectio
 
 We can test if this site is vulnerable to noSQL injection. 
 
-![noSQL Test](/assets/img/writeups/mango_nosqltest.png)
+![noSQL Test](/assets/img/writeups/htb/boxes/mango/mango_nosqltest.png)
 
 We have a successful login! Looking at the page we don't see much
 
-![home page](/assets/img/writeups/mango_underplantation.png)
+![home page](/assets/img/writeups/htb/boxes/mango/mango_underplantation.png)
 
 other than there is an admin user. However now that we know the site is vulnerable to noSQL injection, we can get the usernames and passwords in the database.
 

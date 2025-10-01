@@ -1,17 +1,8 @@
 ---
 layout: default
 title: "CTF Writeups"
-mode: tiles   # <-- change to 'grid' later to enable Hybrid here
 ---
 
 <h1>CTF Writeups</h1>
-
 {% assign items = site.writeups | where: "platform", "CTF" | sort: "published" | reverse %}
-{% if page.mode == 'grid' %}
-  {% assign filter_platform = "CTF" %}
-  {% include writeup-filters.html items=items filter_platform=filter_platform %}
-  {% include writeup-grid.html items=items %}
-{% else %}
-  {% assign page.basepath = '/writeups/ctf' %}
-  {% include writeup-category-tiles.html items=items %}
-{% endif %}
+{% include writeup-grid.html items=items %}

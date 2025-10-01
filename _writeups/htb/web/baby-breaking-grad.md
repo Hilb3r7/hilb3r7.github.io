@@ -1,20 +1,16 @@
 ---
 layout: writeup
-title: Baby Breaking Grad
-description: HTB writeup
-logo: /assets/img/writeups/babybreakinggrad_logo.png
 show-avatar: false
-permalink: /writeups/htb/web/babybreakinggrad.html
-OS: Web Challenge
+redirect_from: /walkthroughs/babybreakinggrad.html
+comments_id: 3
+logo: /assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_logo.png
+title: Baby Breaking Grad
+platform: HTB
+category: Web
 difficulty: Easy
 release: 18 Nov 2020
 creator: <a href="https://www.hackthebox.eu/home/users/profile/95">makelarisjr</a> & <a href="https://www.hackthebox.eu/home/users/profile/107">makelaris</a>
-cleared: 08 Jan 2021
 published: 2021 01 12
-comments_id: 3
-redirect_from: /walkthroughs/babybreakinggrad.html
-platform: "HTB"
-category: "Web"
 ---
 
 **Cliffs:** Analyze the web site source code, and see that user controlled input is being run through an evaluation function provided by the static-eval package. Look through the static-eval github repo and find a fix for a bug that is still present in the older version running on our website. Craft it so that we can execute system commands and get the output via error messages.
@@ -28,14 +24,14 @@ We are told that our physics teacher is unjustly failing us and we will be unabl
 Jumping right in and visiting the site we see a pretty simple interface, two selectable names and a submit button. After submitting, the site displays a message that we did not pass.
 
 <p align="center">
-  <img src="/assets/img/writeups/babybreakinggrad_website.png">
+  <img src="/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_website.png">
 </p>
 
  We can see via our proxy that submitting sends a POST request to the /api/calculate endpoint with a JSON body, and the response contains the message we see displayed on the website.
 
 
 
-![initial request](/assets/img/writeups/babybreakinggrad_initialrequest.png)
+![initial request](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_initialrequest.png)
 
 
 
@@ -43,7 +39,7 @@ Let's look at the provided source code and see how the request is being processe
 
 Looking in the *challenge/routes/index.js* file we see the following
 
-![index.js](/assets/img/writeups/babybreakinggrad_indexjs.png)
+![index.js](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_indexjs.png)
 
 The JSON submitted in our POST request is assigned to the *student* variable. Since we have control over this input, we want to carefully follow it's path through the code and see if there is any way we can use that control to exploit the program.
 
@@ -53,7 +49,7 @@ The conditional statement starting on line 22 appears to be where it is decided 
 
 
 
-![studenthelper.js](/assets/img/writeups/babybreakinggrad_studenthelperjs.png)
+![studenthelper.js](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_studenthelperjs.png)
 
 
 
@@ -67,7 +63,7 @@ One thing we can do though before digging into the code ourselves and hoping to 
 
 We find <a href="https://github.com/browserify/static-eval/commit/0bcd9dc93f42898dfd832a10915a4544e11b8f13">this </a>interesting commit that goes into version 2.0.3
 
-![github commit](/assets/img/writeups/babybreakinggrad_commit.png)
+![github commit](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_commit.png)
 
 It makes some small changes and adds several test cases. This test case in particular looks very intriguing
 
@@ -107,11 +103,11 @@ is just a check to see if 'Baker' or 'Purvis' are part of the passed in name par
 
 Sending the following request
 
-![testcase](/assets/img/writeups/babybreakinggrad_testcase.png)
+![testcase](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_testcase.png)
 
 does indeed result in the process.env being logged to the console of our nodejs server
 
-![console output](/assets/img/writeups/babybreakinggrad_consoleoutput.png)
+![console output](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_consoleoutput.png)
 
 
 
@@ -131,7 +127,7 @@ I'm going to do it though by changing the above slightly and using the following
 
 Let's look specifically at the first part, highlighted in green below,
 
-![part 1](/assets/img/writeups/babybreakinggrad_part1.png)
+![part 1](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_part1.png)
 
 The key thing to understand here is the difference between a function declaration and a function expression (excellently detailed <a href="http://kangax.github.io/nfe/">here</a>).  When a function is wrapped in parenthesis such as above, it is a function expression, as "(" and ")" constitute a grouping operator, and grouping operators can only contain expressions. The identifier (the name of the function) is optional in a function expression, which is why I was able to remove "*myTag*" from the original statement.
 
@@ -166,7 +162,7 @@ var aStringPrimitive = 'whatever';
 var aStringObject = new String('whatever');
 ```
 
-![string](/assets/img/writeups/babybreakinggrad_strings.png)
+![string](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_strings.png)
 
 which allows you to call any of the helper methods of the String object on a string primitive. Another feature of javascript is that you can access an object's properties by using either dot notation or bracket notation.  So the following statements are equivalent
 
@@ -208,7 +204,7 @@ calling the length property on a string obviously returns a number, that number 
 
 Ok, we now know enough to explain what exactly is happening in our original 
 
-![part 1](/assets/img/writeups/babybreakinggrad_part1.png)
+![part 1](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_part1.png)
 
 we are creating a function expression that when passed a truthy parameter returns the Function object, and when the parameter is not returns the Number object.
 
@@ -263,13 +259,13 @@ We've escaped the sandbox, we just need to replace *console.log(process.env)* wi
 If you've been sending various things to the server you may already have noticed, but if not, one of the first things we should always try when looking for vulnerabilities is what happens when we do something that should throw an error. Error messages are incredibly valuable as they might give us more information about what software is running or what the code is doing. Even just being able to see an error message is good information as it is an indication that the system admin is lax or inexperienced, as the output of error messages should never be sent to the end user.
 
 Here we send some improperly formatted JSON in our post request
-![SyntaxError](/assets/img/writeups/babybreakinggrad_syntaxerror.png)
+![SyntaxError](/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_syntaxerror.png)
 
 
 
 We can see that node is sending the error and the entire call stack as the response. This is great news! We can have our function throw an error and use that to return data.
 
-<img src="/assets/img/writeups/babybreakinggrad_yeet.png" alt="YEET!" style="zoom:75%;" />
+<img src="/assets/img/writeups/htb/web/baby-breaking-grad/babybreakinggrad_yeet.png" alt="YEET!" style="zoom:75%;" />
 
 Now for a way to execute system commands. The standard way is to use the *execSync()* function of <a href="https://nodejs.org/api/child_process.html">child_process</a>. You will typically see this called with a require statement like
 

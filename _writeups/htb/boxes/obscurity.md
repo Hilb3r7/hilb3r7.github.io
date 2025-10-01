@@ -1,17 +1,16 @@
 ---
 layout: writeup
+redirect_from: /walkthroughs/obscurity.html
 title: Obscurity
-description: HTB writeup
-logo: /assets/img/writeups/obscurity_logo.png
 show-avatar: false
-permalink: /writeups/obscurity.html
+logo: /assets/img/writeups/htb/boxes/obscurity/obscurity_logo.png
+platform: HTB
+category: Boxes
 OS: Linux
 difficulty: Medium
 release: 30 Nov 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/83743">clubby789</a>
-cleared: 3 Dec 2019
 published: 2019 12 03
-redirect_from: /walkthroughs/obscurity.html
 ---
 
 **Cliffs:** Find source code for the webserver in hidden directory and analyze it to figure out RCE that will give low privilege shell. In user directory there is a python encryption script we can use to figure out users password. As user we can run a python script meant to replace SSH that we can use to gain access to roots password hash or simply to access the root flag.
@@ -40,7 +39,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 If we navigate to the website on port **8080** we see a webpage for a company with a rather interesting take on security. If we run **gobuster** or similar we won't find any useful directories. However reading the page, at the bottom we see 
 
-![secret](/assets/img/writeups/obscurity_webpage.png)
+![secret](/assets/img/writeups/htb/boxes/obscurity/obscurity_webpage.png)
 
 So we know there is a file for us to find, so lets use the following **wfuzz** command to find the directory
 
@@ -48,7 +47,7 @@ So we know there is a file for us to find, so lets use the following **wfuzz** c
 wfuzz -c -w /usr/share/wordlists/dirb/small.txt 10.10.10.168:8080/FUZZ/SuperSecureServer.py
 ```
 
-![wfuzz](/assets/img/writeups/obscurity_wfuzz.png)
+![wfuzz](/assets/img/writeups/htb/boxes/obscurity/obscurity_wfuzz.png)
 
 Navigating to *ht<span>tp://</span>10.10.10.168:8080/develop/SuperSecureServer.py* we are greeted by the code.
 
@@ -87,7 +86,7 @@ So what should we use to get a shell? We know the box is running python, so lets
 
 If we set a netcat listener and visit that url, we will found ourselves with a shell as user **www-data**
 
-![shell](/assets/img/writeups/obscurity_shell.png)
+![shell](/assets/img/writeups/htb/boxes/obscurity/obscurity_shell.png)
 
 Enumerating the machine will turn up a number of interesting files in the */home/robert* directory.
 We have **check.txt** which outputs
@@ -190,11 +189,11 @@ $6$riekpK4m$uBdaAyK0j9WfMzvcSKYVfyEHGtBfnfpiVbYbzbVmfbneEbo0wSijW1GQussvJSk8X1M5
 ```
 
 Lets crack it! Using **John the ripper** and the wordlist **rockyou.txt**. We issue the following commands
-![crack](/assets/img/writeups/obscurity_mercedes.png)
+![crack](/assets/img/writeups/htb/boxes/obscurity/obscurity_mercedes.png)
 
 As we can see the root password is *mercedes*. And we now have access to the root flag.
 
-![root](/assets/img/writeups/obscurity_root.png)
+![root](/assets/img/writeups/htb/boxes/obscurity/obscurity_root.png)
 
 
 
@@ -215,4 +214,4 @@ if session['authenticated'] == 1:
 ```
 
 Every command we enter is prefixed with *sudo -u \<username\>*, but since the script is running as root we can just append another *-u* flag on to execute commands as root. Since we have the password for robert we are able to authenticate via the script
-![method2](/assets/img/writeups/obscurity_method2.png)
+![method2](/assets/img/writeups/htb/boxes/obscurity/obscurity_method2.png)

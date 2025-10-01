@@ -34,6 +34,7 @@ round-avatar: true
 collections:
   writeups:
     output: true
+    permalink: /writeups/:path/
   DOABBH:
     output: true
 

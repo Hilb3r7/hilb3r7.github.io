@@ -1,19 +1,16 @@
 ---
 layout: writeup
-title: Granny
-description: "HTB writeup"
-logo: /assets/img/writeups/granny_logo.png
 show-avatar: false
-permalink: /writeups/granny.html
+redirect_from: /walkthroughs/granny.html
+title: Granny
+logo: /assets/img/writeups/htb/boxes/granny/granny_logo.png
+platform: HTB
+category: Boxes
 OS: Windows
 difficulty: Easy
 release: 12 Apr 2017
 creator: <a href="https://www.hackthebox.eu/home/users/profile/1">ch4p</a>
-cleared: 12 Nov 2019
 published: 2019 11 12
-redirect_from: /walkthroughs/granny.html
-platform: "HTB"
-category: "Web"
 ---
 
 <h2 align="center">Enumeration</h2>
@@ -45,7 +42,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 we see the only open port is **80** and if we navigate to the page we see a default "Under Construction" page. However we see from the scan that it using webDAV. So lets run **davtest**
 
-![davtest](/assets/img/writeups/granny_davtest.png)
+![davtest](/assets/img/writeups/htb/boxes/granny/granny_davtest.png)
 
 Looking at the output of running **nikto** we see that the server is running ASP.net.
 
