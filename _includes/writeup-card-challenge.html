@@ -11,7 +11,7 @@
         Creator: {{ include.item.creator_name }}
       {% endif %}
       {% if include.item.difficulty %}<br>Difficulty: {{ include.item.difficulty }}{% endif %}
-      {% if include.item.release %}<br>Released: {{ include.item.release }}{% endif %}
+      {% if include.item.release %}<br>Released: {{ include.item.release | date: "%b %-d, %Y" }}{% endif %}
       {% if include.item.published %}<br>Published: {{ include.item.published | date: "%b %-d, %Y" }}{% endif %}
       {% if include.item.tags and include.item.tags.size > 0 %}
         <br>Tags:
