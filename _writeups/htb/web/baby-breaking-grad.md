@@ -8,9 +8,14 @@ title: Baby Breaking Grad
 platform: HTB
 category: Web
 difficulty: Easy
-release: 18 Nov 2020
-creator: <a href="https://www.hackthebox.eu/home/users/profile/95">makelarisjr</a> & <a href="https://www.hackthebox.eu/home/users/profile/107">makelaris</a>
-published: 2021 01 12
+release: "18 Nov 2020"
+creator_name: "makelarisjr & makelaris"
+creator_url: 
+    - "https://app.hackthebox.com/users/95" 
+    - "https://app.hackthebox.com/users/107"
+published: "2021-01-12"
+tags:
+    - static-eval
 ---
 
 **Cliffs:** Analyze the web site source code, and see that user controlled input is being run through an evaluation function provided by the static-eval package. Look through the static-eval github repo and find a fix for a bug that is still present in the older version running on our website. Craft it so that we can execute system commands and get the output via error messages.

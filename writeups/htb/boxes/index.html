@@ -3,7 +3,8 @@ layout: default
 title: "HTB • Boxes"
 ---
 
-<h1>HTB • Boxes</h1>
+<h1 style="text-align: center;">Hack The Box • Boxes</h1>
+<p>
 {% assign htb = site.writeups | where: "platform", "HTB" %}
 {% assign items = htb | where: "category", "Boxes" | sort: "published" | reverse %}
 {% include writeup-grid.html items=items %}

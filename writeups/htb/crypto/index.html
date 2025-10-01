@@ -3,7 +3,7 @@ layout: default
 title: "HTB • Crypto"
 ---
 
-<h1>HTB • Crypto</h1>
+<h1 style="text-align: center;">Hack The Box • Crypto</h1>
 {% assign htb = site.writeups | where: "platform", "HTB" %}
 {% assign items = htb | where: "category", "Crypto" | sort: "published" | reverse %}
 {% include writeup-grid.html items=items %}

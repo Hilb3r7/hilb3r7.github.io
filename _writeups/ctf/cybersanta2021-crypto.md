@@ -8,7 +8,7 @@ title: CyberSanta
 category: Crypto
 platform: CTF
 difficulty: Easy
-published: 2021 12 05
+published: "2021-12-05"
 event: CyberSanta 2021
 ---
 

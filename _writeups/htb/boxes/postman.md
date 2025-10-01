@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 OS: Linux
 difficulty: Easy
-release: 2 Nov 2019
-creator: <a href="https://www.hackthebox.eu/home/users/profile/114053">TheCyberGeek</a>
-publiished: 2019 11 09
+release: "2 Nov 2019"
+creator_name: "TheCyberGeek"
+creator_url: "https://app.hackthebox.com/users/114053"
+published: "2019-11-09"
 ---
 
 <h2 align="center">Enumeration</h2>

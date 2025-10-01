@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 difficulty: Easy
 OS: Linux
-release: 21 Jul 2017
-creator: <a href="https://www.hackthebox.eu/home/users/profile/2904">Arrexel</a>
-published: 2019 11 03
+release: "21 Jul 2017"
+creator_name: Arrexel
+creator_url: "https://app.hackthebox.com/users/2904"
+published: "2019-11-03"
 ---
 
 <h2 align="center">Enumeration</h2>

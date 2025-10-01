@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 OS: Linux
 difficulty: Medium 
-release: 26 Oct 2019
-creator: <a href="https://www.hackthebox.eu/home/users/profile/13531">MrR3boot</a>
-published: 2019 11 09
+release: "26 Oct 2019"
+creator_name: "MrR3boot"
+creator_url: "https://app.hackthebox.com/users/13531"
+published: "2019-11-09"
 ---
 
 <h2 align="center">Enumeration</h2>

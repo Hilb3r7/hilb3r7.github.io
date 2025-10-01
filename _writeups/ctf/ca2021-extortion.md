@@ -8,7 +8,7 @@ category: Web
 difficulty: easy
 platform: CTF
 event: Cyber Apocalypse 2021
-published: 2021 04 23
+published: "2021-04-23"
 ---
 
 If we check out the main page we see  a few links.

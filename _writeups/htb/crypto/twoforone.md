@@ -7,12 +7,15 @@ title: TwoForOne
 platform: HTB
 category: Crypto
 difficulty: Easy
-release: 04 Dec 2020
-creator: <a href="https://app.hackthebox.eu/users/337512">Fukurou</a> 
-published: 2021 05 06
+release: "04 Dec 2020"
+creator_name: "Fukurou"
+creator_url: "https://app.hackthebox.eu/users/337512"
+published: "2021-05-06"
+tags:
+    - Bézoult's Identity
 ---
 
-**Cliffs:** Extract the modulus and exponent from the RSA public keys. Use Bézoult's Identity to  retrieve the message from the ciphertexts.
+**Cliffs:** Extract the modulus and exponent from the RSA public keys. Use Bézoult's Identity to retrieve the message from the ciphertexts.
 
 
 

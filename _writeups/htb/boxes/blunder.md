@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 difficulty: Easy
 OS: Linux
-release: 30 May 2020
-creator: <a href="https://www.hackthebox.eu/home/users/profile/94858">egotisticalSW</a>
-published: 2020 06 20
+release: "30 May 2020"
+creator_name: "egotisticalSW"
+creator_url: "https://app.hackthebox.com/users/94858"
+published: "2020-06-20"
 ---
 
 **Cliffs:** website is running Bludit CMS vulnerable to authenticated RCE and a brute force mitigation bypass. Use CEWL to generate password list and a discovered .txt file for username and then brute force the creds. Exploit RCE for reverse shell. View a bludit database php file for creds to escalate to user. Exploit sudo vulnerability for root access.

@@ -8,9 +8,12 @@ platform: HTB
 category: Boxes
 OS: windows
 difficulty: Easy
-release: 21 Mar 2020
-creator: <a href="https://www.hackthebox.eu/home/users/profile/2984">mrb3n</a>
-published: 2020 06 29
+release: "21 Mar 2020"
+creator_name: mrb3n
+creator_url: "https://app.hackthebox.com/users/2984"
+published: "2020-06-29"
+tags:
+    - Umbraco CMS
 ---
 
 **Cliffs:** mount nfs share containing backup of website running Umbraco CMS vulnerable to RCE, get creds from database file and exploit RCE for reverse shell as user. Two paths to root, UsoSvc service exploit, or teamviewer password vulnerability for creds to windRM login.

@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 OS: Linux
 difficulty: Easy
-release: 24 Aug 2019
-creator: <a href="https://www.hackthebox.eu/home/users/profile/8292">guly</a>
-published: 2019 11 01
+release: "24 Aug 2019"
+creator_name: "guly"
+creator_url: "https://app.hackthebox.com/users/8292"
+published: "2019-11-01"
 ---
 
 <h2 align="center">Enumeration</h2>

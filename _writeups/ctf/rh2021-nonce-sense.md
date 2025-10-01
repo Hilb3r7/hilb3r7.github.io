@@ -9,7 +9,7 @@ category: Crypto
 difficulty: Medium
 platform: CTF
 event: RomHack 2021 CTF
-published: 2021 09 19
+published: "2021-09-19"
 ---
 
 **Cliffs:** Server divulges $k$ which allows us to recover the private key. We can then sign any message ourselves and retrieve the flag.

@@ -1,0 +1,30 @@
+<li class="card"
+    data-title="{{ include.item.title | escape }}"
+    data-event="{{ include.item.event | escape }}"
+    data-tags="{{ include.item.tags | default: empty | join: ' ' | escape }}"
+    data-category="{{ include.item.category | escape }}"
+    data-difficulty="{{ include.item.difficulty | escape }}"
+    data-platform="{{ include.item.platform | escape }}">
+  <a href="{{ include.item.url | relative_url }}">
+    <h3>{{ include.item.title }}</h3>
+    <p class="meta">
+      {% if include.item.event %}
+        Event: {{ include.item.event }}
+      {% endif %}
+      {% if include.item.category %}
+        <br>Category: {{ include.item.category }}
+      {% endif %}
+      {% if include.item.creator_name %}
+        <br>Creator: {{ include.item.creator_name }}
+      {% endif %}
+      {% if include.item.difficulty %}<br>Difficulty: {{ include.item.difficulty }}{% endif %}
+      {% if include.item.published %}<br>Published: {{ include.item.published | date: "%b %-d, %Y" }}{% endif %}
+      {% if include.item.tags and include.item.tags.size > 0 %}
+        <br>Tags:
+        {% for tag in include.item.tags %}
+          {{ tag }}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+  </a>
+</li>

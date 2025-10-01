@@ -7,9 +7,13 @@ title: Composition
 platform: HTB
 category: Crypto
 difficulty: Medium
-release: 02 Apr 2021
-creator: <a href="https://app.hackthebox.eu/users/185587">DaysOfLife</a> 
-published: 2021 06 02
+release: "02 Apr 2021"
+creator_name: "DaysOfLife"
+creator_url: "https://app.hackthebox.eu/users/185587"
+published: "2021-06-02"
+tags:
+    - "Fermat Factorization"
+    - "Chineese Remainder Theorem"
 ---
 
 

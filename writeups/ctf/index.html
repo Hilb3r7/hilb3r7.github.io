@@ -3,6 +3,6 @@ layout: default
 title: "CTF Writeups"
 ---
 
-<h1>CTF Writeups</h1>
+<h1 style="text-align: center;">CTF Writeups</h1>
 {% assign items = site.writeups | where: "platform", "CTF" | sort: "published" | reverse %}
 {% include writeup-grid.html items=items %}

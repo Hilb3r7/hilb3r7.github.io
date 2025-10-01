@@ -8,9 +8,10 @@ platform: HTB
 category: Boxes
 OS: Linux
 difficulty: Medium
-release: 30 Nov 2019
-creator: <a href="https://www.hackthebox.eu/home/users/profile/83743">clubby789</a>
-published: 2019 12 03
+release: "30 Nov 2019"
+creator_name: "clubby789"
+creator_url: "https://app.hackthebox.com/users/83743"
+published: "2019-12-03"
 ---
 
 **Cliffs:** Find source code for the webserver in hidden directory and analyze it to figure out RCE that will give low privilege shell. In user directory there is a python encryption script we can use to figure out users password. As user we can run a python script meant to replace SSH that we can use to gain access to roots password hash or simply to access the root flag.

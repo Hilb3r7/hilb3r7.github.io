@@ -6,12 +6,12 @@
     data-difficulty="{{ include.item.difficulty | escape }}"
     data-platform="{{ include.item.platform | escape }}">
   <a href="{{ include.item.url | relative_url }}">
-    {% if include.item.thumbnail %}<img src="{{ include.item.thumbnail | relative_url }}" alt="">{% endif %}
+    {% if include.item.logo %}<img src="{{ include.item.logo | relative_url }}" alt="">{% endif %}
     <h3>{{ include.item.title }}</h3>
     <p class="meta">
       {{ include.item.platform }}{% if include.item.category %} • {{ include.item.category }}{% endif %}
       {% if include.item.difficulty %} • {{ include.item.difficulty }}{% endif %}
-      {% if include.item.date %} • {{ include.item.date | date: "%b %-d, %Y" }}{% endif %}
+      {% if include.item.published %} • {{ include.item.published | date: "%b %-d, %Y" }}{% endif %}
     </p>
     {% if include.item.summary %}<p class="sum">{{ include.item.summary }}</p>{% endif %}
   </a>

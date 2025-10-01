@@ -8,9 +8,12 @@ platform: HTB
 category: Boxes
 OS: Linux
 difficulty: Easy
-release: 16 Nov 2019
-creator: <a href="https://www.hackthebox.eu/home/users/profile/77141">jkr</a>
-published: 2019 11 19
+release: "16 Nov 2019"
+creator_name: "jkr"
+creator_url: "https://app.hackthebox.com/users/77141"
+published: "2019-11-19"
+tags:
+     - nostromo
 ---
 
 <h2 align="center">Enumeration</h2>
